@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Validator</title>
+
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+
+    <form action="/endpoint.php" id="myForm" method="POST">
+
+        <div>
+            <label for="name">Nombre</label>
+           <input 
+                class="jsValidator" 
+                type="text" 
+                name="name"
+                data-validators="required length"
+                data-validators_minlength="5" 
+                data-validators_maxlength="100"> 
+        </div>
+
+        <div>
+            <label for="email">Email: </label>
+            <input 
+                class="jsValidator" 
+                type="text"
+                name="email"
+                data-validators="required email">
+        </div>
+
+        <div>
+            <label for="edad">Edad: </label>
+            <input 
+                class="jsValidator" 
+                type="text"
+                name="edad"
+                data-validators="required integer">
+        </div>
+
+        <div>
+            <label for="username">Username: </label>
+            <input 
+                class="jsValidator" 
+                type="text"
+                name="username"
+                data-validators="required length alphanumeric"
+                data-validators_minlength="5" 
+                data-validators_maxlength="100">
+        </div>
+
+        <div>
+            <label for="url">Url: </label>
+            <input 
+                class="jsValidator" 
+                type="text"
+                name="url"
+                data-validators="required url">
+        </div>
+
+        <button type="submit">Enviar</button>
+        
+
+    </form>
+
+    <script src="./js/jsvalidator.js"></script>
+
+    <script>
+        const myFormValidator = new JSValidator('myForm');
+        myFormValidator.init().setAjax();
+    </script>
+    
+</body>
+</html>
